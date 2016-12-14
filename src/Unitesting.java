@@ -57,7 +57,7 @@ public void HappyTest2() throws SQLException, PatientDaoException{
 @Test (expected = PatientDaoException.class)
 public void ExceptionCase() throws SQLException, PatientDaoException{
 	when(conn.prepareStatement(anyString())).thenReturn(psmt);
-	when(psmt.executeUpdate()).thenThrow(new Exception());
+	when(psmt.executeUpdate()).thenThrow(new SQLException());
 	Patient p = new Patient("fname","lname");
 	newDAO.insert_patient(p);
 }
